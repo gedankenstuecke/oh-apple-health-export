@@ -70,15 +70,29 @@ def receiver(request, token):
     Endpoint for receiving Overland data
     """
     if request.method == 'POST':
-        print(request.headers)
+        ahuser = AppleHealthUser.objects.get(endpoint_token=token)
         body = json.loads(request.body)
         print(body.keys())
         print(body['data'].keys())
         print(len(body['data']['metrics']))
-        for i in body['data']['metrics']:
-            print(i)
-        print(body['data']['workouts'])
-        return HttpResponse('In receiver: no user')
+        # for i in body['data']['metrics']:
+        #   print(i)
+        # print(body['data']['workouts'])
+        body = json.loads(request.body)
+        metrics = body['data']['metrics']
+        now = (datetime.now().timestamp())
+        fname = 'health-metric-batch-{}.json'.format(now)
+        stream = io.BytesIO(bytes(json.dumps(metrics), 'utf-8'))
+        metadata = {
+            'tags': ['apple health', 'metrics', 'unprocessed'],
+            'description': 'unprocessed apple health match'}
+        ahuser.oh_member.upload(
+            stream=stream, filename=fname,
+            metadata=metadata)
+        print('UPLOADED BATCH FOR {0}'.format(ahuser.oh_member.oh_id))
+        #process_batch.delay(fname, ahuser.oh_member.oh_id)
+        return JsonResponse({"result": "ok"})
+        #return HttpResponse('In receiver: no user')
 #    try:
 #        oluser = OverlandUser.objects.get(endpoint_token=token)
 #        print('IN RECEIVER FOR {0}'.format(oluser.oh_member.oh_id))

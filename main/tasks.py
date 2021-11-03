@@ -22,7 +22,7 @@ def process_batch(fname, oh_id):
         for metric in metrics:
             # is any data for this metric in this batch?
             if len(metric['data']) > 0:
-                metric_name = print(metric['name'])
+                metric_name = metric['name']
                 existing_metric_data, old_metric_file_id = get_existing_metric(oh_member, metric_name)
                 batch_df = pandas.DataFrame.from_dict(metric['data'])
                 for i in metric.keys():

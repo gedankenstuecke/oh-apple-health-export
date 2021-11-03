@@ -31,7 +31,7 @@ def process_batch(fname, oh_id):
                         batch_df[i] = metric[i]
                 if type(existing_metric_data) == pandas.core.frame.DataFrame:
                     batch_df = pandas.concat(
-                        [existing_metric_data, batch_df]).reset_index(drop=True)
+                        [existing_metric_data, batch_df]).reset_index(drop=True).drop_duplicates()
                 str_io = io.StringIO()
                 batch_df.to_csv(str_io, index=False, encoding='utf-8')
                 str_io.flush()

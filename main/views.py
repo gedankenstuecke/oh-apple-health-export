@@ -73,7 +73,7 @@ def receiver(request, token):
         print(request.headers)
         body = json.loads(request.body)
         print(body.keys())
-        print(request.POST.keys())
+        print(body[data].keys())
         return HttpResponse('In receiver: no user')
 #    try:
 #        oluser = OverlandUser.objects.get(endpoint_token=token)

@@ -23,12 +23,12 @@ def process_batch(fname, oh_id):
             # is any data for this metric in this batch?
             if len(metric['data']) > 0:
                 metric_name = metric['name']
+                print('processing {}'.format(metric_name))
                 existing_metric_data, old_metric_file_id = get_existing_metric(oh_member, metric_name)
                 batch_df = pandas.DataFrame.from_dict(metric['data'])
                 for i in metric.keys():
                     if i != 'data':
                         batch_df[i] = metric[i]
-                print(batch_df.head())
                 if type(existing_metric_data) == pandas.core.frame.DataFrame:
                     batch_df = pandas.concat(
                         [existing_metric_data, batch_df]).reset_index(drop=True)
@@ -37,7 +37,7 @@ def process_batch(fname, oh_id):
                 str_io.flush()
                 str_io.seek(0)
                 oh_member.upload(
-                    stream=str_io, filename=metric_name+'csv',
+                    stream=str_io, filename=metric_name+'.csv',
                     metadata={
                         'description': '{} data from Apple Health'.format(
                             metric_name),

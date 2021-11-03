@@ -90,7 +90,7 @@ def receiver(request, token):
             stream=stream, filename=fname,
             metadata=metadata)
         print('UPLOADED BATCH FOR {0}'.format(ahuser.oh_member.oh_id))
-        #process_batch.delay(fname, ahuser.oh_member.oh_id)
+        process_batch.delay(fname, ahuser.oh_member.oh_id)
         return JsonResponse({"result": "ok"})
         #return HttpResponse('In receiver: no user')
 #    try:

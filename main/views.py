@@ -74,6 +74,7 @@ def receiver(request, token):
         body = json.loads(request.body)
         print(body.keys())
         print(body['data'].keys())
+        print(len(body['data']['metrics']))
         print(body['data']['metrics'][0])
         return HttpResponse('In receiver: no user')
 #    try:

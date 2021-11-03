@@ -29,6 +29,8 @@ def process_batch(fname, oh_id):
                 for i in metric.keys():
                     if i != 'data':
                         batch_df[i] = metric[i]
+                if metric_name == 'high_heart_rate_notifications':
+                    batch_df = batch_df.drop(columns=['heartRate','heartRateVariation'])
                 if type(existing_metric_data) == pandas.core.frame.DataFrame:
                     batch_df = pandas.concat(
                         [existing_metric_data, batch_df]).reset_index(drop=True).drop_duplicates()

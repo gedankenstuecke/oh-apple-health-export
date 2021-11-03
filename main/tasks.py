@@ -16,8 +16,8 @@ def process_batch(fname, oh_id):
     print('task processing {}'.format(oh_id))
     oh_member = OpenHumansMember.objects.get(oh_id=oh_id)
     metrics = get_metrics_batch(oh_member, fname)
-    if type(metrics) == dict:
-        print('batch is dict')
+    if type(metrics) == list:
+        print('batch is list of metrics')
         # now iterate through each metric in the batch
         for metric in metrics:
             # is any data for this metric in this batch?

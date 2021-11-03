@@ -10,7 +10,7 @@ from django.shortcuts import redirect, render
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-
+import json
 from openhumans.models import OpenHumansMember
 from .tasks import process_batch
 from .models import AppleHealthUser
@@ -71,7 +71,8 @@ def receiver(request, token):
     """
     if request.method == 'POST':
         print(request.headers)
-        print(request.body)
+        body = json.loads(request.body)
+        print(body.keys())
         print(request.POST.keys())
         return HttpResponse('In receiver: no user')
 #    try:

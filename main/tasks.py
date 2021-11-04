@@ -47,9 +47,9 @@ def process_batch(fname, oh_id):
                             metric_name),
                         'tags': ['apple health', metric_name,
                                  'processed', 'CSV']})
-                oh_member.delete_single_file(file_basename=fname)
                 if old_metric_file_id:
                     oh_member.delete_single_file(file_id=old_metric_file_id)
+        oh_member.delete_single_file(file_basename=fname)
     else:
         print('batch is not dict')
         oh_member.delete_single_file(file_basename=fname)

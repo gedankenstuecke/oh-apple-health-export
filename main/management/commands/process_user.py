@@ -19,7 +19,7 @@ class Command(BaseCommand):
         files = oh_member.list_files()
         batches = []
         for f in files:
-            if f['basename'].startswith('overland-batch-'):
+            if f['basename'].startswith('health-metric-batch'):
                 batches.append(f['basename'])
         batches.sort()
         for f in batches:

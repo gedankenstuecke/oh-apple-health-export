@@ -33,9 +33,12 @@ def index(request):
 
     context = {'auth_url': auth_url}
     if request.user.is_authenticated:
-        context['overland_endpoint'] = urllib.parse.urljoin(
+        receiver_url = urllib.parse.urljoin(
             settings.OPENHUMANS_APP_BASE_URL,
-            request.user.openhumansmember.applehealthuser.endpoint_token+"/")
+            "receiver/{}/".format(
+                request.user.openhumansmember.applehealthuser.endpoint_token))
+        context['exporter_url'] = receiver_url
+        context['exporter_endpoint'] = "com.HealthExport://apiexport?url={}".format(receiver_url)
     return render(request, 'main/index.html', context=context)
 
 

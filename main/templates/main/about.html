@@ -17,10 +17,10 @@
             You can always get in touch with us at <a href="mailto:support@openhumans.org">support@openhumans.org</a>.
           </p>
           <p>
-            See this project's page on Open Humans:<br><a href='https://www.openhumans.org/activity/overland-connection/'>https://www.openhumans.org/activity/overland-connection/</a>
+            See this project's page on Open Humans:<br><a href='https://www.openhumans.org/activity/apple-health-auto-export/'>https://www.openhumans.org/activity/apple-health-auto-export/</a>
           </p>
           <p>
-            See this app's code on GitHub:<br><a href='https://github.com/OpenHumans/oh-overland'>https://github.com/OpenHumans/oh-overland</a>
+            See this app's code on GitHub:<br><a href='https://github.com/gedankenstuecke/oh-apple-health-export'>https://github.com/gedankenstuecke/oh-apple-health-export</a>
           </p>
           </div>
         </div>
@@ -42,25 +42,25 @@
             </ol>
             <li>By logging in with your <i>Open Humans</i> account we can access:</li>
             <ol>
-              <li>Overland location archives generated through this app itself</li>
-              <li>(You can always review this app's permissions <a href='https://www.openhumans.org/activity/overland-connection/'>on Open Humans</a>)</li>
+              <li>the Apple Health export archives generated through this app itself</li>
+              <li>(You can always review this app's permissions <a href='https://www.openhumans.org/activity/apple-health-auto-export/'>on Open Humans</a>)</li>
             </ol>
-            <li>If you push <i>Overland</i> location data to the <code>endpoint</code> created for you, we can access the location data sent from <i>Overland</i>, including:</li>
+            <li>If you use <i>Auto Export</i> to push <i>Apple Health</i> metrics data to the <code>endpoint</code> created for you, we can access the data you choose to data via it, it can include:</li>
             <ol>
-              <li>Your location (latitude, longitude, altitude, speed)</li>
-              <li>The accuracy of your location data points</li>
-              <li>Information on whether you are moving and how</li>
-              <li>Battery information about your phone</li>
-              <li>If you are logged into a WiFi and if yes, it's SSID/name.</li>
+              <li>activity data</li>
+              <li>sleep data</li>
+              <li>weight</li>
+              <li>blood glucose</li>
+              <li>and any other metrics you choose to send.</li>
             </ol>
-            <li>Overland Connect will store:</li>
+            <li>This website will store:</li>
             <ol>
               <li>your random Open Humans identifier that's unrelated to your username on Open Humans</li>
-              <li>the authentication credentials that allow us to read & write your Overland data on Open Humans</li>
+              <li>the authentication credentials that allow us to read & write your <i>Auto Export</i> data on Open Humans</li>
             </ol>
           </ol>
           <p>
-            Overland Connect is covered by Open Humans' <a href='https://www.openhumans.org/terms/'>Terms of Use</a> and
+            The <i>Auto Export for Apple Health</i> integration is covered by Open Humans' <a href='https://www.openhumans.org/terms/'>Terms of Use</a> and
             <a href='https://www.openhumans.org/data-use/'>Data Use Policy</a>:
           </p>
           <p>
@@ -79,7 +79,7 @@
           </div>
           <div class="panel-body">
             <p>
-              With this application you can create an API endpoint for the <i>Overland</i> app to push your location data into your <i>Open Humans</i> account.
+              With this application you can create an API endpoint for the <i>Auto Export for Apple Health</i> iOS app to push your iOS Health data into your <i>Open Humans</i> account.
           </div>
         </div>
         <div class="panel panel-default">
@@ -91,21 +91,19 @@
             You can log-in into this application with your <i>Open Humans</i> account. This allows us to deposit data in your <i>Open Humans</i> account.
           </p>
           <p>
-            Logging in also creates a unique URL that you can use as the <code>receiver endpoint</code> in the <i>Overland</i> application. Everytime you then push data from the iOS app to this endpoint we will
-            add this data to your growing <i>Overland</i> location history record on <i>Open Humans</i>.
+            Logging in also creates a unique URL that you can use as the <code>receiver endpoint</code> in the <i>Auto Export for Apple Health</i> application. Everytime you then push data from the iOS app to this endpoint we will
+            add this data to your growing <i>Auto Export for Apple Health</i> archives on <i>Open Humans</i>.
           </p>
           </div>
         </div>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Where do I get Overland?</h3>
+            <h3 class="panel-title">Where do I get <i>Auto Export for Apple Health</i></h3>
           </div>
           <div class="panel-body">
           <p>
-            <i>Overland</i> is available for both <a href='https://overland.p3k.app/download'><i>iOS</i> on the App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.openhumans.app.overland"><i>Android</i> on the Google Play store</a>.
+            It is available for <a href='https://apple.co/3iqbU2d'><i>iOS</i> on the App Store</a>.
           </p>
-          <p>
-            The app is free and open source. See the code for the <a href="https://github.com/aaronpk/Overland-iOS">iOS version</a> and the <a href="https://github.com/OpenHumans/overland_android">Android version</a>.
           </div>
         </div>
         <div class="panel panel-default">
@@ -113,29 +111,33 @@
             <h3 class="panel-title">How do I set up this connection?</h3>
           </div>
           <div class="panel-body">
-          <p>
-            Once you have logged in you will get your personal Overland <code>receiver endpoint</code> URL.
-            Copy this URL and enter it in your Overland app on your phone:
-            <ul>
-              <li>Open the <i>Overland</i></li>
-              <li>Open the <i>Settings</i> menu by clicking on the bottom right button</li>
-              <li>On the top click on <i>Set Receiver Endpoint URL</i></li>
-              <li>Paste the URL you copied from the left</li>
-              <li>Press <i>Save</i></li>
-              <li>You are done now. Don't forget to turn on <i>Tracking Enabled</i></li>
-            </ul>
-            {% load static %}
-            <h3>For <i>iOS</i></h3>
             <p>
-            <img width="49%" src="{% static 'img/howto1.jpg'%}"/>
-            <img width="49%" src="{% static 'img/howto2.jpg'%}"/>
+              To get started you will need your URL to which you want to sent your data. If you've logged in into this app it will appear on the front page.
+
+              After you have copied your personal URL you can enter it in your <i>Auto Export</i> app on your phone:
+              <ul>
+                <li>Open the <i>Auto Export</i> app</li>
+                <li>Select the <i>Automations</i> tab in the bottom</li>
+                <li>Click on <i>API Export</i></li>
+                <li>On the very top you find the <i>endpoint</i> field</li>
+                <li>Paste your URL there></li>
+                <li>Check that the <i>Enabled</i> button is turned on</li>
+              </ul>
+              <p>
+              In principle you are now good to go with these default settings. There are a couple of settings that you can change if you want:
+              <ul>
+                <li><b>Categories:</b> You can select which of the health metrics stored in <i>Apple Health</i> you want to send to <i>Open Humans</i>.</li>
+                <li><b>Sync Cadence:</b> How often do you want to send your data to Open Humans? The highest frequency is once per hour, but you can do it more rarely if you want.</li>
+                <li><b>Period:</b>Data from which time period should be sent? By default it's always all data for the current day and the day before, but you can also choose only today's data, yesterday's data or even the previous 7 days.</li>
+                <li><b>Aggregation:</b>How fine-grained should the data be? The default is a per-second resolution for heart rate and per-minute for everything else. But you can also choose to aggregate per minute for everything, per hour or per day.</li>
+              </ul>
+              <b>IMPORTANT:</b> Please don't change the <i>Export format</i>. The default is <i>JSON</i> and this application expects the data to arrive as in this format before transforming it into regular CSV files. The reason for this is that the CSV export of <i>Auto Export</i> can not deliver data that's more fine-grained than a per-day aggregate.
+              </p>
+              <br/>
+              {% load static %}
+              <img width="49%" src="{% static 'img/howto1.jpg'%}"/>
+              <img width="49%" src="{% static 'img/howto2.jpg'%}"/>
             </p>
-            <h3>For <i>Android</i></h3>
-            <p>
-            <img width="49%" src="{% static 'img/howto-android1.jpg'%}"/>
-            <img width="49%" src="{% static 'img/howto-android2.jpg'%}"/>
-            </p>
-          </p>
         </div>
       </div>
   </div>

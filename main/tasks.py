@@ -21,7 +21,7 @@ def process_batch(fname, oh_id):
         # now iterate through each metric in the batch
         for metric in metrics:
             # is any data for this metric in this batch?
-            if len(metric['data']) > 0:
+            if len(metric['data']) > 0 and metric['name'] != 'sleep_analysis':
                 metric_name = metric['name']
                 print('processing {}'.format(metric_name))
                 existing_metric_data, old_metric_file_id = get_existing_metric(oh_member, metric_name)
